@@ -13,4 +13,12 @@ public class Bullet : MonoBehaviour
         // Cập nhật lại vị trí mới
         transform.position = newPosition;
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Enemy"))
+        {
+            Destroy(other.gameObject); // Xóa kẻ địch
+            Destroy(gameObject);       // Xóa chính viên đạn
+        }
+    }
 }
